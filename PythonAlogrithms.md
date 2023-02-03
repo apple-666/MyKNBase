@@ -62,6 +62,10 @@ flag = not flag  取反操作
 [0,n][nums[0]<nums[n]]  True是1下标 False是0下标
 等价于:
 n if nums[0] < nums[n] else 0
+
+i>=0 and i<n 
+可以优化成:
+0<=i<n
 ```
 
 
