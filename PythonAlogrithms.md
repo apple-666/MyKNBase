@@ -49,6 +49,9 @@ list[m:n]  		从[m,n) 左闭右开
 list[m:n:k] 	按k的间隔
 list[::-1]		倒序
 	eg:	t = t[::-1]
+# 复制数组
+深拷贝：
+b = copy.deepcopy(a)
 
 ```
 
