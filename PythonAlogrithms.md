@@ -17,3 +17,96 @@ n = (int)(input())
 print("%.2f",2.222)
 print(format(2.2222,'.2f'))
 ```
+## 02-数组
+```python
+# 初始化
+dp = [0]*N
+dp = [[0]*N for i in range(M)]  # M行N列
+
+# 常用切片
+list[-n]   		第倒n个数据
+list[m:n]  		从[m,n) 左闭右开
+list[m:n:k] 	按k的间隔
+list[::-1]		倒序
+	eg:	t = t[::-1]
+
+```
+
+## 03-常用函数
+```python
+str1.find(str2) 	返回字串str2的下标
+isalnum() 			方法检测字符串是否由字母和数字组成。
+str.upper() str.lower()
+ord('A') 64 返回ASCLL码
+
+# 列表相关
+nums.sort() 列表排序
+num = list.pop() 默认出最后一个,
+	eg:	list.pop(n)  出下标为n的   	list.pop(-1) 出最后一个
+```
+
+
+## 04-常用运算
+```python
+a = 9//3  # 3 整除
+b = 9/3   # 3.0
+
+#三目运算符
+# ?的不允许
+a = 1>0 ? True:False
+# if else的运行
+a= True if 1>0 else False
+
+flag = not flag  取反操作
+
+[0,n][nums[0]<nums[n]]  True是1下标 False是0下标
+等价于:
+n if nums[0] < nums[n] else 0
+```
+
+
+## 常用容器
+```python
+默认字典,key可以为int,string等,value可以为list
+mp = defaultdict(list) 
+mp[0].append(1)
+print(mp[0][0])
+```
+
+
+
+##  
+```python
+
+```
+
+
+
+##  
+```python
+
+```
+
+
+##  
+```python
+
+```
+
+
+##  
+```python
+
+```
+
+##  
+```python
+
+```
+
+
+
+##  
+```python
+
+```
