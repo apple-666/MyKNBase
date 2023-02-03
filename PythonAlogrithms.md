@@ -11,11 +11,18 @@ a, b, c = map(int, input().split())
 str = input()
 
 输入一个整数
-n = (int)(input())
+n = int(input()) 或 (int)(input())
 
-输入一个数组
+输入一个一维数组
 a1 = input() 是一整行的字符  再转换成int
 a = [int(i) for i in a1.split()]
+
+输入一个二维数组
+n = int(input())        //输入二维数组的行数和列数
+line = [[0]*n]*n        //初始化二维数组
+for i in range(n):
+    line[i] = input().split(" ")       //输入二维数组 1 2 4，同行数字用空格分隔，不同行则用回车换行
+print(line)            //打印二维数组
 
 保留位数：
 print("%.2f",2.222)
@@ -25,7 +32,7 @@ print(format(2.2222,'.2f'))
 ```python
 # 初始化
 dp = [0]*N
-dp = [[0]*N for i in range(M)]  # M行N列
+dp = [[0]*n]*m 或者 [[0]*N for i in range(M)]  # M行N列
 
 # 常用切片
 list[-n]   		第倒n个数据
