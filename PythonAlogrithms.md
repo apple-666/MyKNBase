@@ -13,6 +13,10 @@ str = input()
 输入一个整数
 n = (int)(input())
 
+输入一个数组
+a1 = input() 是一整行的字符  再转换成int
+a = [int(i) for i in a1.split()]
+
 保留位数：
 print("%.2f",2.222)
 print(format(2.2222,'.2f'))
