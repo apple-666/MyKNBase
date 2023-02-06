@@ -41,7 +41,7 @@ print(format(2.2222,'.2f'))
 ```python
 # 初始化
 dp = [0]*N
-dp = [[0]*N for i in range(M)]  # M行N列 每行不会跟着变化
+dp = [[0]*N for _ in range(M)]  # M行N列 每行不会跟着变化
 dp = [[0]*n]*m 每行都会跟着变化
 
 # 常用切片
