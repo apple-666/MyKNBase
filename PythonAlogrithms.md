@@ -38,6 +38,7 @@ print("%.2f",2.222)
 print(format(2.2222,'.2f'))
 ```
 ## 02-数组
+### 01-切片
 ```python
 # 初始化
 dp = [0]*N
@@ -45,6 +46,7 @@ dp = [[0]*N for _ in range(M)]  # M行N列 每行不会跟着变化
 dp = [[0]*n]*m 每行都会跟着变化
 
 # 常用切片
+num2.append(num[:])	[:]复制出一个完整数组
 list[-n]   		第倒n个数据
 list[m:n]  		从[m,n) 左闭右开
 list[m:n:k] 	按k的间隔
