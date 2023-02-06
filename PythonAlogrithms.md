@@ -15,7 +15,7 @@ n = int(input()) 或 (int)(input())
 
 输入一个一维数组
 a1 = input() 是一整行的字符  再转换成int
-a = [int(i) for i in a1.split()]
+a = [int(i) for i in a1.split()
 
 输入一个二维数组----------------------------------------------------------------------------
 int型二维:
@@ -70,7 +70,17 @@ str.upper() str.lower()
 ord('A') 64 返回ASCLL码
 
 # 列表相关
-nums.sort() 列表排序
+list.sort(cmp=None, key=None, reverse=False)
+nums.sort() 		列表排序
+nums.sort(reverse=True) 降序
+nums.sorted()		
+sorted() 和 sort()区别：
+- sort() 	改变原数组，返回None
+- sorted() 	不改变原数组,返回排序后的数组
+
+
+
+
 num = list.pop() 默认出最后一个,
 	eg:	list.pop(n)  出下标为n的   	list.pop(-1) 出最后一个
 choice(nums) O(1)随机出nums中的数据
