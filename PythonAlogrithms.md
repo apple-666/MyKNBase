@@ -51,8 +51,11 @@ list[m:n:k] 	按k的间隔
 list[::-1]		倒序
 	eg:	t = t[::-1]
 # 复制数组
+浅拷贝：地址相同
+nums2 = nums  会同时改变
 深拷贝：
-b = copy.deepcopy(a)
+nums2 = copy.deepcopy(nums)
+nums2 = nums[::]
 
 ```
 
