@@ -64,6 +64,19 @@ strs = list(map(str,nums))
 
 ```
 
+## 02-02 排序
+```python
+strs = map(str,nums)	# 
+def cmp(a,b):
+    if a+b == b+a:
+	return 0
+    elif a+b>b+a:
+	return 1
+    else:
+	return -1
+strs = sorted(strs,key=functools.cmp_to_key(cmp),reverse=True)
+```
+
 ## 03-常用函数
 ```python
 str1.find(str2) 	返回字串str2的下标
@@ -80,12 +93,18 @@ sorted() 和 sort()区别：
 - sort() 	改变原数组，返回None
 - sorted() 	不改变原数组,返回排序后的数组
 
+
 map() 会根据提供的函数对指定序列做映射，返回映射值。
 strs = map(str,nums)  	nums的列表，都加上str(),返回map类型
-list(strs) 		
+list(strs) 	
+
+join() 字符串插入新元素组成新的字符串。
+	symbol = "-";
+	seq = ("a", "b", "c"); # 字符串序列
+	print symbol.join( seq ); a-b-c
 
 num = list.pop() 默认出最后一个,
-	eg:	list.pop(n)  出下标为n的   	list.pop(-1) 出最后一个
+eg:	list.pop(n)  出下标为n的   	list.pop(-1) 出最后一个
 choice(nums) O(1)随机出nums中的数据
 	
 ```
