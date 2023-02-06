@@ -57,6 +57,9 @@ nums2 = nums  会同时改变
 nums2 = copy.deepcopy(nums)
 nums2 = nums[::]
 
+# int数组num转str的num2
+nums2 = [str(i) for i in nums]
+
 ```
 
 ## 03-常用函数
