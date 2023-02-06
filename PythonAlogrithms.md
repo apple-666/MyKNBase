@@ -79,6 +79,8 @@ sorted() 和 sort()区别：
 - sorted() 	不改变原数组,返回排序后的数组
 
 map() 会根据提供的函数对指定序列做映射，返回映射值。
+strs = map(str,nums)  	nums的列表，都加上str(),返回map类型
+list(strs) 		
 
 
 
