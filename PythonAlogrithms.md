@@ -59,6 +59,8 @@ nums2 = nums[::]
 
 # int数组num转str的num2
 nums2 = [str(i) for i in nums]
+或者
+strs = list(map(str,nums))
 
 ```
 
@@ -81,9 +83,6 @@ sorted() 和 sort()区别：
 map() 会根据提供的函数对指定序列做映射，返回映射值。
 strs = map(str,nums)  	nums的列表，都加上str(),返回map类型
 list(strs) 		
-
-
-
 
 num = list.pop() 默认出最后一个,
 	eg:	list.pop(n)  出下标为n的   	list.pop(-1) 出最后一个
