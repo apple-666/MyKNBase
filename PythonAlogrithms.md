@@ -67,6 +67,8 @@ ord('A') 64 返回ASCLL码
 nums.sort() 列表排序
 num = list.pop() 默认出最后一个,
 	eg:	list.pop(n)  出下标为n的   	list.pop(-1) 出最后一个
+choice(nums) O(1)随机出nums中的数据
+	
 ```
 
 
