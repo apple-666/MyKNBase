@@ -142,12 +142,36 @@ mp = defaultdict(list)
 mp[0].append(1)
 print(mp[0][0])
 ```
-
-
-
-##  
+## 类相关 
 ```python
+class NestedIterator:
 
+    def __init__(self, nestedList: [NestedInteger]):
+        self.idx = -1   # 添加私有变量
+        self.lens = 0
+        self.myList = []
+        list1 = nestedList[:]
+        self.dfs(list1)
+
+    def dfs(self,list): # 可以额外添加函数
+            for i in list:
+                if i.isInteger():
+                    self.myList.append(i.getInteger())
+                    self.lens += 1
+                else:
+                    t = i.getList()
+                    self.dfs(t)
+
+    def next(self) -> int:
+        if not self.hasNext():
+            return -1
+        self.idx += 1
+        return self.myList[self.idx] 
+    
+    def hasNext(self) -> bool:
+        if self.idx<self.lens-1:
+            return True
+        return False
 ```
 
 
