@@ -177,8 +177,17 @@ class NestedIterator:
 
 
 
-##  
+## 字符串
+### 去除空格
 ```python
+去除左右空格：
+strip()方法
+lstrip()
+rstrip()
+
+正则表达式去除全部空格：
+str = " Hello world "  str.replace(" ","")  输出： "Helloworld"
+
 
 ```
 
