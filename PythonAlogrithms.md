@@ -189,13 +189,12 @@ rstrip()
 
 正则表达式去除全部空格：
 str = " Hello world "  str.replace(" ","")  输出： "Helloworld"
-
-
 ```
 
 
-##  
+## 常见方法时间复杂度
 ```python
+num in numList: in 是O(n) 推荐使用dict
 
 ```
 
