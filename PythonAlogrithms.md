@@ -79,6 +79,12 @@ def cmp(a,b):
     else:
 	return -1
 strs = sorted(strs,key=functools.cmp_to_key(cmp),reverse=True)
+
+反转：
+nums.reverse()
+切片反转：
+nums[idx:] = list(reversed(nums[idx:]))
+
 ```
 
 ## 03-常用函数
