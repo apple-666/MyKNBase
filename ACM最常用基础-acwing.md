@@ -275,6 +275,33 @@ void merge(vector<PII> &segs)
     segs = res;
 }
 ```
+## 表达式求值
+符号：+-*/
+数字：大于等于0
+```python
+class Solution:
+    def calculate(self, s: str) -> int:
+        s2 = s.replace(' ','')
+        ans = self.compute(s2)
+        return ans
+    
+    def compute(self,s):
+        op = '+' # 默认为加 开头第一个数字默认加
+        num = 0
+        st = []
+        for i in range(len(s)):
+            if s[i].isnumeric():
+                num = num*10+int(s[i])
+            if not s[i].isnumeric() or i==len(s)-1:
+                if op=='+': st.append(num)
+                if op=='-': st.append(-num)
+                if op=='*': st.append(st.pop()*num)
+                if op=='/': st.append(int(st.pop()/num))     
+                op = s[i]
+                num = 0
+        return sum(st)
+        # for i 
+```
 
 <a name="iflVT"></a>
 # 02-数据结构
