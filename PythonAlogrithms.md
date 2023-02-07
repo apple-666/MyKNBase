@@ -64,6 +64,8 @@ nums2 = [str(i) for i in nums]
 或者
 strs = list(map(str,nums))
 
+# 常用方法:
+s.insert(idx,1) 在idx位置加数字1
 ```
 
 ## 02-02 排序
@@ -104,12 +106,15 @@ join() 字符串插入新元素组成新的字符串。
 	symbol = "-";
 	seq = ("a", "b", "c"); # 字符串序列
 	print symbol.join( seq ); a-b-c
+''.join(arr) arr列表转换成字符串
 
 num = list.pop() 默认出最后一个,
 eg:	list.pop(n)  出下标为n的   	list.pop(-1) 出最后一个
 choice(nums) O(1)随机出nums中的数据
 
 isnumeric() 函数，判断数字和字符串混合的字符串，返回False。 使用isnumeric() 函数，判断纯数字字符串，返回True。
+
+
 	
 ```
 
