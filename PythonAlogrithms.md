@@ -199,9 +199,13 @@ num in numList: in 是O(n) 推荐使用dict
 ```
 
 
-##  
+## 常用的常量
 ```python
-
+# 2^32
+MASK = 0x100000000
+# 整型最大值
+MAX_INT = 0x7FFFFFFF
+MIN_INT = MAX_INT + 1
 ```
 
 ##  
