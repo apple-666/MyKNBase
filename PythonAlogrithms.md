@@ -55,7 +55,7 @@ list[::-1]		倒序
 # 复制数组
 浅拷贝：地址相同
 nums2 = nums  会同时改变
-深拷贝：
+深拷贝：（return nums2时失效了）
 nums2 = copy.deepcopy(nums)
 nums2 = nums[::]
 
