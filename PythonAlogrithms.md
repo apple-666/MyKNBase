@@ -179,7 +179,7 @@ class NestedIterator:
 
 
 
-## 字符串
+## 字符串string
 ### 去除空格
 ```python
 去除左右空格：
@@ -190,6 +190,11 @@ rstrip()
 正则表达式去除全部空格：
 str = " Hello world "  str.replace(" ","")  输出： "Helloworld"
 ```
+### 常用方法
+```python
+s.count(i)  字符i的数量
+```
+
 
 
 ## 常见方法时间复杂度
