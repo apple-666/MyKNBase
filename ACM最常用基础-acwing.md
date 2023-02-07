@@ -234,6 +234,26 @@ S[i, j] = 第i行j列格子左上部分所有元素的和<br />以(x1, y1)为左
 4.把一个数字二进制下最靠右的第一个1去掉。<br/>
 方法：x=x&(x−1)<br/>
 
+力扣371. 两整数之和
+```python
+class Solution:
+    def getSum(self, a: int, b: int) -> int:
+        # ans = (a^b表无符号加法) + (a&b表进位) 直到没有出现进位
+        MASK = 0x100000000 # 2**32
+        MAX_INT = 0x7FFFFFFF    # 整型最大值=2**31-1
+        MIN_INT = -(MAX_INT+1)  # 整型最小值
+        ans = a
+        while b:
+            jin = ((a&b)<<1)%MASK
+            ans = (a^b)%MASK
+
+            # a^b + a&b
+            a = ans
+            b = jin
+        return ans if ans<=MAX_INT else (a%MIN_INT)
+```
+
+
 :::
 <a name="ghHka"></a>
 ## 双指针算法 —— 模板题 AcWIng 799. 最长连续不重复子序列, AcWing 800. 数组元素的目标和
