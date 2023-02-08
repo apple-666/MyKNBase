@@ -70,6 +70,21 @@ s.insert(idx,1) 在idx位置加数字1
 
 ## 02-02 排序
 ```python
+力扣179
+class Solution:
+    def largestNumber(self, nums: List[int]) -> str:
+        strs = map(str, nums)
+        def cmp(a, b):
+            if a + b == b + a:
+                return 0
+            if a + b < b + a:
+                return 1
+            return -1
+        strs = sorted(strs, key = functools.cmp_to_key(cmp))
+        ans = ''.join(strs)
+        if strs[0]=='0': return '0'  # 开头时0的，ans就是0
+        return ans 
+	
 strs = map(str,nums)	# 
 def cmp(a,b):
     if a+b == b+a:
