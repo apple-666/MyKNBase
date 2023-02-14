@@ -773,12 +773,18 @@ ULL get(int l, int r)
     和上面类似，增删改查的时间复杂度是 O(1)<br />    不支持 lower_bound()/upper_bound()， 迭代器的++，--
 <a name="w0VxP"></a>
 ## bitset, 圧位
-    bitset<10000> s;<br />    ~, &, |, ^<br />    >>, <<<br />    ==, !=<br />    []
-
+    bitset<10000> s;
+    ~, &, |, ^
+    >>, <<
+    ==, !=
+    []
     count()  返回有多少个1
-
-    any()  判断是否至少有一个1<br />    none()  判断是否全为0
-
-    set()  把所有位置成1<br />    set(k, v)  将第k位变成v<br />    reset()  把所有位变成0<br />    flip()  等价于~<br />    flip(k) 把第k位取反
+    any()  判断是否至少有一个1 
+    none()  判断是否全为0
+    set()  把所有位置成1 
+    set(k, v)  将第k位变成v
+    reset()  把所有位变成0
+    flip()  等价于~
+    flip(k) 把第k位取反
 <a name="zURQ0"></a>
 
