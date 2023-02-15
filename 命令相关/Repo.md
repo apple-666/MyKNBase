@@ -5,7 +5,7 @@ XXname 代码参数
 repo help init                  生成 Repo init 参数的说明和选项列表
 repo init --help
 
-repo init -u urlname [options]  当前目录中安装 Repo                （类似git clone）
+repo init -u urlname [options]  当前目录中安装 Repo                （类似于初始化.git）
 -u：指定从中检索清单代码库的网址。
 -m：选择代码库中的清单文件。如果未选择清单名称，则默认为 default.xml。
 -b：指定修订版本，即特定的 manifest-branch。
