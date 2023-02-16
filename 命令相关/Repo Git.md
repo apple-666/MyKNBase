@@ -11,13 +11,16 @@ repo init -u urlname [options]  当前目录中安装 Repo                （类
 -b：指定修订版本，即特定的 manifest-branch。
 -g: 
 eg:
-  repo init -u urlname1 -b br_hisi_wt_austin_lollipop_5_1 -g open --no-repo-verify --repo-branch=stable
+  repo init -u urlname1 -b xxxx -g open --no-repo-verify --repo-branch=stable
 
 
 repo sync [project-list-name] 更新本地工作文件 默认同步所有项目的文件 （类似git rebase origin）
 -c：仅获取服务器中的当前清单分支
 eg：
-  repo sync -c  --no-tags
+  repo sync -c  --no-tags   同步最新代码
+ 
+
+
   
 
 ```
