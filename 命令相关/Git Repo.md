@@ -119,6 +119,10 @@ git branch -dr remote/dev2          删除远程的dev2
 ```python
  git reset HEAD
 ```
+### 撤销刚才的commit
+```python
+ git reset --soft HEAD^ 		仅仅是撤回commit操作，您写的代码仍然保留。
+```
 
 ### 撤销提交：回到对应的版本号
 ```python
@@ -127,12 +131,9 @@ gitk 查询对应点的版本号（SHA1 ID）
 git reset –-soft 版本号：回退到某个版本，只回退了commit的信息，不会恢复到index file一级。如果还要提交，直接commit即可； 
 git reset -–hard 版本号：彻底回退到某个版本，本地的源码也会变为上一个版本的内容，撤销的commit中所包含的更改被冲掉； 
 ```
-### 撤销刚才的commit
+### commit注释写错了，只是想改一下注释 或代码，只需要：
 ```python
- git reset --soft HEAD^ 		仅仅是撤回commit操作，您写的代码仍然保留。
-```
-### commit注释写错了，只是想改一下注释，只需要：
-```python
+ git add .
  git commit --amend 
 ```
 ### 如果push失败：
@@ -141,6 +142,27 @@ git gc
 git pull --rebase 
 git push origin HEAD:refs/for/master%ready 
 ```
+### 两个gerrit （要在同git环境下，同git conf下）提交合并成一个commit[id]：
+```
+相关命令：
+	git stash				# let stash
+    git stash list			# list
+    git stash pop			# pop
+步骤：
+    git status  确保clear
+    git fetch ssh://fwx1233030@rnd-hisi-kirin-origin.huawei.com:394181111111111
+    git reset --soft HEAD^
+    （中途可修改代码）
+    git stash
+    git fetch ssh://fwx1233030@rnd-hisi-kirin-origin.huawei.com:39422222222222  # 尽量在对应分支下面 fetch
+    git reset --soft HEAD^
+    （中途可修改代码）
+    git stash pop
+    git add .
+    git commit
+    repo upload
+```
+
 ## 02-fetch和pull：
 [https://blog.csdn.net/weixin_44821980/article/details/108536648](https://blog.csdn.net/weixin_44821980/article/details/108536648)
 **pull（拉取）**
