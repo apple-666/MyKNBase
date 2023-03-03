@@ -115,6 +115,11 @@ git branch -dr remote/dev2          删除远程的dev2
 ```python
  git reset 
 ```
+### 撤销到git add之前:
+```python
+ git reset HEAD
+```
+
 ### 撤销提交：回到对应的版本号
 ```python
 gitk 查询对应点的版本号（SHA1 ID） 
