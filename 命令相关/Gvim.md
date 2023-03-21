@@ -9,4 +9,9 @@ ll -rt  时间升序
 
 :w 保存不退出
 ```
+
+Gvim:
+```python
+:E 退出到目录页
+```
 教学：https://blog.51cto.com/u_15346322/3670341
