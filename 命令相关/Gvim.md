@@ -19,5 +19,10 @@ Gvim:
 
 :/\<x2\>  只搜x2
 搜到后 n下一个  N上一个
+
+查找目录下 有str的文件
+grep -rn "apple_come" ./
 ```
 教学：https://blog.51cto.com/u_15346322/3670341
+
+
