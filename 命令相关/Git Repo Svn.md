@@ -263,3 +263,10 @@ If you pull remote changes with the flag --merge, which is also the default, the
 git pull --merge 
 :::
 
+
+# Svn
+svn up		
+svn add a.txt
+svn ci -m 'msg1' 提交当前目录所有修改的
+svn ci -m 'msg1' a1.o a2.o 指定文件提交
+
