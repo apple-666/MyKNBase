@@ -266,10 +266,14 @@ git pull --merge
 
 # Svn
 ```python
-svn up		
-svn add a.txt
+svn up		update
+svn status
+svn log
+svn add a.txt	(可有可无的)
 svn ci -m 'msg1' 提交当前目录所有修改的
 svn ci -m 'msg1' a1.o a2.o 指定文件提交
+svn mv a.log dir1/  移动
+svn del a.log -m 'msg1'
 ```
 
 
