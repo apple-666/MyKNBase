@@ -265,8 +265,11 @@ git pull --merge
 
 
 # Svn
+```python
 svn up		
 svn add a.txt
 svn ci -m 'msg1' 提交当前目录所有修改的
 svn ci -m 'msg1' a1.o a2.o 指定文件提交
+```
+
 
