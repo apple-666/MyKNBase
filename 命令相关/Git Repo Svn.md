@@ -125,12 +125,16 @@ git branch -dr remote/dev2          删除远程的dev2
  git reset --soft HEAD^ 		仅仅是撤回commit操作，您写的代码仍然保留。
 ```
 
-### 撤销提交：回到对应的版本号
+### 撤销push：回到对应的版本号
 ```python
 gitk 查询对应点的版本号（SHA1 ID） 
+或者git log
 按 q 退出查看 
-git reset –-soft 版本号：回退到某个版本，只回退了commit的信息，不会恢复到index file一级。如果还要提交，直接commit即可； 
-git reset -–hard 版本号：彻底回退到某个版本，本地的源码也会变为上一个版本的内容，撤销的commit中所包含的更改被冲掉； 
+git reset –-soft 版本号：回退到某个版本，只回退了commit的信息，不会恢复到index file一级。
+	- 如果还要提交，直接commit + push即可； 
+git reset -–hard 版本号：彻底回退到某个版本，本地的源码也会变为上一个版本的内容，撤销的commit中所包含的更改被冲掉 
+	- 然后 git push origin dev1 --force  强制提交
+
 ```
 ### commit注释写错了，只是想改一下注释 或代码，只需要：
 ```python
