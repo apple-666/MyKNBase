@@ -106,7 +106,8 @@ git checkout dev2                   切换到分支dev2 （可以在查看玩远
 git merge dev3                      吸收dev3（将dev3合并过来）
 git branch -d dev2                  删除dev2
 git branch -D dev2                 强制删除
-git push origin --delete dev2	删除远程的dev2 
+git push origin --delete dev2	   删除远程的dev2 
+git push origin dev2               从我的分支上push
 git push -f                        强制push
 git branch -dr remote/dev2          删除远程的dev2
 ```
@@ -145,7 +146,7 @@ git push origin HEAD:refs/for/master%ready
 ### 两个gerrit （要在同git环境下，同git conf下）提交合并成一个commit[id]：
 ```
 相关命令：
-	git stash				# let stash
+    git stash				# let stash
     git stash list			# list
     git stash pop			# pop
 步骤：
