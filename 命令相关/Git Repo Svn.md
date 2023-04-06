@@ -167,6 +167,7 @@ git push origin HEAD:refs/for/master%ready
 ## 02-fetch和pull：
 [https://blog.csdn.net/weixin_44821980/article/details/108536648](https://blog.csdn.net/weixin_44821980/article/details/108536648)
 **pull（拉取）**
+```python
 :::info
 作用和我的理解：把数据从远端拉到本地目前的分支上并进行自动合并
 对本地文件的影响：如果有有冲突会自动合并，有些合并不了的会提示用户手动合并。
@@ -176,6 +177,7 @@ git push origin HEAD:refs/for/master%ready
 作用和我的理解：获取远端仓库信息 , 比如现在远端的版本比本地的版本先进，用git branch -a可以查看远端的分支，但是这时我们查询的分支也是旧的 ， 当使用git fetch获取到远端信息之后，此时用git branch -a查询出来的远端分支是最新的，我们将远端分支和本地分支进行合并，并且解决冲突在进行commit和push
 对本地文件的影响：和本地文件无关
 :::
+```
  
 ```python
 1.获取远端master信息 	
@@ -249,6 +251,12 @@ eg：在公司中：
 2、git merge master
 3、将本地内容push到dev分支：
 	git push
+	
+我的分支(dev1)内容合并到master中：
+git pull
+git checkout master
+get merge dev1
+git push
 ```
 **较为复杂的分支相关命令：**
 [https://blog.csdn.net/weixin_30699831/article/details/101982286](https://blog.csdn.net/weixin_30699831/article/details/101982286)
