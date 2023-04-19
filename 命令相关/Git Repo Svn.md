@@ -155,11 +155,11 @@ git push origin HEAD:refs/for/master%ready
     git stash pop			# pop
 步骤：
     git status  确保clear
-    git fetch ssh://fwx1233030@rnd-hisi-kirin-origin.huawei.com:394181111111111
+    git fetch ssh://sssssm:394181111111111  会拉下来代码
     git reset --soft HEAD^
     （中途可修改代码）
     git stash
-    git fetch ssh://fwx1233030@rnd-hisi-kirin-origin.huawei.com:39422222222222  # 尽量在对应分支下面 fetch
+    git fetch ssh://sssssom:39422222222222  # 尽量在对应分支下面 fetch
     git reset --soft HEAD^
     （中途可修改代码）
     git stash pop
