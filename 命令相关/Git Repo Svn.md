@@ -107,7 +107,7 @@ git merge dev3                      吸收dev3（将dev3合并过来）
 git branch -d dev2                  删除dev2
 git branch -D dev2                 强制删除
 git push origin --delete dev2	   删除远程的dev2 
-git push origin dev2               从我的分支上push
+git push origin dev2               从当前分支push到dev2分支
 git push -f                        强制push
 git branch -dr remote/dev2          删除远程的dev2
 ```
