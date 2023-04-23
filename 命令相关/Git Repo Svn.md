@@ -231,6 +231,15 @@ git push origin --delete dev2	   删除远程的dev2
 git push origin dev2               从当前分支push到dev2分支
 git push -f                        强制push
 git branch -dr origin/dev2          删除远程的dev2  (先用git branch -r )
+
+
+拉取远程分支到本地：
+git init				
+git remote add origin http.....git
+git fetch origin remote_dev
+git checkout -b local_dev origin/remote_dev 	
+git pull origin remote_dev
+
 ```
 **一、本文是从master分支拉出的t2分支，然后合并回master**
 ```python
