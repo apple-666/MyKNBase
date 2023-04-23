@@ -99,17 +99,6 @@ git status
 git log                             查看提交历史
 git branch				本地仓库上的分支	
 当前所在的分支在查看时会变绿
-git branch -r                       远程仓库的分支
-git branch dev1                     创建分支dev1
-git checkout -b dev2                创建并切换到分支dev2
-git checkout dev2                   切换到分支dev2 （可以在查看玩远程后直接切换）
-git merge dev3                      吸收dev3（将dev3合并过来）
-git branch -d dev2                  删除dev2
-git branch -D dev2                 强制删除
-git push origin --delete dev2	   删除远程的dev2 
-git push origin dev2               从当前分支push到dev2分支
-git push -f                        强制push
-git branch -dr remote/dev2          删除远程的dev2
 ```
 ## 01-常用场景
 ### 撤销git add .:
@@ -227,23 +216,38 @@ $ git remote -v
 ```
 eg：在公司中：
 ![image.png](https://cdn.nlark.com/yuque/0/2023/png/22347830/1676561621315-25f57907-f7f7-49a0-b722-369705f057bf.png#averageHue=%23292c39&clientId=uc653fb8e-644a-4&from=paste&height=248&id=u2dce24d4&name=image.png&originHeight=248&originWidth=675&originalType=binary&ratio=1&rotation=0&showTitle=false&size=20146&status=done&style=none&taskId=ucfca84d6-e019-4ab7-9ad6-d03211c86ae&title=&width=675)
-## 03-常用merge场景
-**一、本文是从master分支拉出的two，然后合并回master**
+## 03-常用分支merge场景
+**常用分支命令**
+```python
+git branch 		            查看本地分支		
+git branch -r                       查看远程仓库的分支
+git branch dev1                     创建分支dev1
+git checkout dev2                   切换到分支dev2 （可以在查看玩远程后直接切换）
+git checkout -b dev2                创建并切换到分支dev2
+git merge dev3                      吸收dev3（将dev3合并过来）
+git branch -d dev2                  删除dev2
+git branch -D dev2                 强制删除
+git push origin --delete dev2	   删除远程的dev2 
+git push origin dev2               从当前分支push到dev2分支
+git push -f                        强制push
+git branch -dr origin/dev2          删除远程的dev2  (先用git branch -r )
+```
+**一、本文是从master分支拉出的t2分支，然后合并回master**
 ```python
 1、切换到master分支：
 	git checkout master
 2、创建并切换到two分支：
-	git checkout -b two
-3、将two分支push到远程仓库（与本地仓库同步）：
-	git push origin two
-4、修改two分支上的内容并提交到本地仓库：
+	git checkout -b t2  或者 git branch t2 + checkout
+3、将当前的分支push到远程仓库的t2分支（与本地仓库同步）：
+	git push origin t2
+4、修改t2分支上的内容并提交到本地仓库：
 	git commit -a -m"修改子分支"
-5、将two分支上的修改提交到远程仓库：
-	git push origin two
-6、two分支上的修改ok后，切换到master分支：
+5、将t2分支上的修改提交到远程仓库：
+	git push origin t2
+6、t2分支上的修改ok后，切换到master分支：
 	git checkout master（注意，只有checkout切换到当前分支后，pull代码，才能看见当前分支的代码，如果没有checkout到当前分支，pull了也在相应文件夹下也看不见当前分支的代码，而是上次checkout的代码）
-7、将two分支合并到master分支：
-	git merge origin/two
+7、将t2分支合并到master分支：
+	git merge origin/t2   或者在 master分支中 git merge t2
 8、将合并之后的代码push到远程仓库：
 	git push origin master
 此例是父分支和自分支之间的merge操作，爷孙分支亦如此，旁系分支合并亦然
