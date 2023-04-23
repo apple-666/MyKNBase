@@ -234,11 +234,11 @@ git branch -dr origin/dev2          删除远程的dev2  (先用git branch -r )
 
 
 拉取远程分支到本地：
-git init				
-git remote add origin http.....git
-git fetch origin remote_dev
-git checkout -b local_dev origin/remote_dev 	
-git pull origin remote_dev
+git init			  初始化空文件	
+git remote add origin http.....git 拉master
+git fetch origin remote_dev        拉远程的分支
+git checkout -b local_dev origin/remote_dev 建立本地分支	
+git pull origin remote_dev         拉取远程分支最新的代码
 
 ```
 **一、本文是从master分支拉出的t2分支，然后合并回master**
