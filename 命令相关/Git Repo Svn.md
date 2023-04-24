@@ -103,7 +103,7 @@ git branch				本地仓库上的分支
 ## 01-常用场景
 ### 撤销git add .:
 ```python
- git reset 
+ git reset  或者 git restore filename
 ```
 ### 撤销到git add之前:
 ```python
