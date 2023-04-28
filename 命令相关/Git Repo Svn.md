@@ -224,6 +224,7 @@ $ git remote -v
 eg：在公司中：
 ![image.png](https://cdn.nlark.com/yuque/0/2023/png/22347830/1676561621315-25f57907-f7f7-49a0-b722-369705f057bf.png#averageHue=%23292c39&clientId=uc653fb8e-644a-4&from=paste&height=248&id=u2dce24d4&name=image.png&originHeight=248&originWidth=675&originalType=binary&ratio=1&rotation=0&showTitle=false&size=20146&status=done&style=none&taskId=ucfca84d6-e019-4ab7-9ad6-d03211c86ae&title=&width=675)
 ## 03-常用分支merge场景
+
 **常用分支命令**
 ```python
 git branch 		            查看本地分支		
@@ -239,6 +240,14 @@ git push origin dev2               从当前分支push到dev2分支
 git push -f                        强制push
 git branch -dr origin/dev2          删除远程的dev2  (先用git branch -r )
 
+新建分支并提交（常用）
+git clone ..git
+git branch peng  创建peng分支
+git checkout peng 跳到peng分支
+修改。。
+git add .
+git commit -m "xxx"
+git push origin peng 提交（带-u是关联ref）
 
 拉取远程分支到本地：
 git init			            初始化空文件	
