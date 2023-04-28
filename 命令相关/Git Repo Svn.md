@@ -240,7 +240,7 @@ git push origin dev2               从当前分支push到dev2分支
 git push -f                        强制push
 git branch -dr origin/dev2          删除远程的dev2  (先用git branch -r )
 
-新建分支并提交（常用）
+新建分支并提交（常用, 提了merge request后，分支就可以换了）
 git clone ..git
 git branch peng  创建peng分支
 git checkout peng 跳到peng分支
