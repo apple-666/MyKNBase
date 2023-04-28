@@ -63,6 +63,9 @@ git config --global user.email 24736743@qq.com #邮箱
 git status [filename] 
 #查看所有文件状态 
 git status
+	未git add 是红色
+	git add. 后是绿色
+	git commit 后无状态
 :::
 **忽略文件**
 :::info
@@ -103,11 +106,10 @@ git branch				本地仓库上的分支
 ## 01-常用场景
 ### 撤销git add .:
 ```python
+修改了状态，但本地修改的代码还在
+
  git reset  或者 git restore filename
-```
-### 撤销到git add之前:
-```python
- git reset HEAD
+ git reset HEAD  撤销最近的一次 
 ```
 ### 撤销刚才的commit
 ```python
@@ -145,7 +147,7 @@ git push origin HEAD:refs/for/master%ready
 步骤：
     git status  确保clear
     git fetch ssh://sssssm:394181111111111  会拉下来代码
-    git reset --soft HEAD^
+    git reset --soft HEAD^  
     （中途可修改代码）
     git stash
     git fetch ssh://sssssom:39422222222222  # 尽量在对应分支下面 fetch
