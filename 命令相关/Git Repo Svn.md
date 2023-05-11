@@ -116,6 +116,15 @@ git branch				本地仓库上的分支
  git reset --soft HEAD^ 		仅仅是撤回commit操作，您写的代码仍然保留。
 ```
 
+### 已commit，撤销一个文件的修改
+```python
+git log a.txt
+git reset commitid a.txt
+git checkout a.txt
+git add .
+git commit
+```
+
 ### 撤销git fetch
 ```python
  git reset --hard HEAD^ 		fetch的代码会消失，回退到之前的状态，可以用于对比new 和 old bin
