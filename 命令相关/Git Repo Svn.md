@@ -119,7 +119,7 @@ git branch				本地仓库上的分支
 ### 已commit，撤销一个文件的修改
 ```python
 git log a.txt
-git reset commitid a.txt
+git reset commitid a.txt  撤销到前一个commitid
 git checkout a.txt
 git add .
 git commit
