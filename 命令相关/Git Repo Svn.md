@@ -160,7 +160,7 @@ git push origin HEAD:refs/for/master%ready
     git stash pop			# pop
 步骤：
     git status  确保clear
-    git fetch ssh://sssssm:394181111111111  会拉下来代码
+    git fetch ssh://sssssm:394181111111111  会拉下来代码  (包含commit信息，后面的fetch想合到这个commit上的话，就不用git reset， 后面的git fetch的 git reset 再 add+commit)
     git reset --soft HEAD^  
     （中途可修改代码）
     git stash
