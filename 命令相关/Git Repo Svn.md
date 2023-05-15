@@ -172,6 +172,11 @@ git push origin HEAD:refs/for/master%ready
     git add .
     git commit
     repo upload
+其他步骤:
+    git fetch no1
+    git fetch no2
+    git fetch no3
+    用 git reset --hard HEAD^    可以去除当前仓最近的一个git fetch 
 ```
 
 ## 02-fetch和pull：
