@@ -128,6 +128,7 @@ git commit
 ### 撤销git fetch
 ```python
  git reset --hard HEAD^ 		fetch的代码会消失，回退到之前的状态，可以用于对比new 和 old bin
+ git reset --soft HEAD^ 		fetch的代码不会消失，回退到git commit之前的代码（绿色），可以再次提交
 ```
 
 ### 撤销push：回到对应的版本号
