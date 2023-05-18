@@ -153,8 +153,17 @@ git gc
 git pull --rebase 
 git push origin HEAD:refs/for/master%ready 
 ```
-### 两个gerrit （要在同git环境下，同git conf下）提交合并成一个commit[id]：
+
+### git fetch的使用
+```python
+消除conflict：
+git pull
+git fetch
+git diff
+git commit
 ```
+```
+两个gerrit （要在同git环境下，同git conf下）提交合并成一个commit[id]：
 相关命令：
     git stash				# let stash
     git stash list			# list
