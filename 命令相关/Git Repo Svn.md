@@ -255,7 +255,18 @@ git push origin dev2               从当前分支push到dev2分支
 git push -f                        强制push
 git branch -dr origin/dev2          删除远程的dev2  (先用git branch -r )
 
-新建分支并提交（常用, 提了merge request后，分支就可以换了）
+0. main存发布版本，分支1做开发版本
+git clone ..git (main分支就行)(远程环境的已经做过了)
+git checkout -b new_branch
+git add ..
+git commit -m 'xx'
+git push origin new_branch
+在git_lab提merger rq，merge到main中
+git checkout main  (git checkout origin mian)
+git pull origin
+之后就是接收git check循环了
+
+1. 新建分支并提交（常用, 提了merge request后，分支就可以换了）
 git clone ..git
 git branch peng  创建peng分支
 git checkout peng 跳到peng分支
@@ -264,7 +275,7 @@ git add .
 git commit -m "xxx"
 git push origin peng 提交（带-u是关联ref）
 
-拉取远程分支到本地：
+2. 拉取远程分支到本地：
 git init			            初始化空文件	
 git remote add origin http.....git          拉master(只是初始.git文件)
 git fetch origin remote_dev                 拉远程的分支(初始化)
