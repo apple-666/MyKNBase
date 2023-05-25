@@ -9,7 +9,8 @@ ll -al  详细信息
 grep -rn "apple_come" ./
 
 查找目录下符合文件名的文件
-find . -name "*apple*"
+find . -name "*apple*" 当前目录搜素
+find / -name "*aaa"  全局搜索
 ```
 
 # 磁盘空间相关
