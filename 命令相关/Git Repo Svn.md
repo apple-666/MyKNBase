@@ -99,8 +99,9 @@ git status
 # 02-常用场景 命令
 ## 00-常用命令
 ```python
-git log                             查看提交历史
-git branch				本地仓库上的分支	
+git show                            最近一次commit的修改内容（配合git fetch之后使用）
+git log                             查看提交历史
+git branch			    本地仓库上的分支	
 当前所在的分支在查看时会变绿
 ```
 ## 01-常用场景
