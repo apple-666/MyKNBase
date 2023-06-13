@@ -112,6 +112,12 @@ git branch			    本地仓库上的分支
  git reset  或者 git restore filename
  git reset HEAD  撤销最近的一次 
 ```
+
+### git add后取消一个文件的提交:
+```python
+git restore --staged file1
+之后看git status是没有对应文件的
+```
 ### 撤销刚才的commit
 ```python
  git reset --soft HEAD^ 		仅仅是撤回commit操作，您写的代码仍然保留。
