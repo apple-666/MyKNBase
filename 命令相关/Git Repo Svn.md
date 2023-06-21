@@ -109,7 +109,7 @@ git branch			    本地仓库上的分支
 ```python
 修改了状态，但本地修改的代码还在
 
- git reset  或者 git restore filename
+ git reset HEAD filename 或者 git restore filename
  git reset HEAD  撤销最近的一次 
 ```
 
