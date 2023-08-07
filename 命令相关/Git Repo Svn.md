@@ -357,9 +357,13 @@ git config   .gitconfig文件
 
 文件两种状态：
 untracked 未跟踪 未被纳入版本控制
-tracked 已跟踪的(staged(暂存的) modified unmodified)
+tracked 已跟踪的(staged(暂存的) modified )
 
-git status -s 更简洁的查看  (M已修改的状态 ??未跟踪的状态)
+git status -s 更简洁的查看
+ 	M 已修改的状态(红色 为add之前  绿色位add之后
+	??未跟踪的状态)
+	D 被删除的文件
+git rm 就是删除一个文件 和右键删除一个文件效果一样
 ```
 
 # Svn
