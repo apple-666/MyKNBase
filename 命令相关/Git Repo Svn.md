@@ -347,9 +347,20 @@ If you pull remote changes with the flag --merge, which is also the default, the
 git pull --merge 
 :::
 
+# 我的理解
 ![image](https://github.com/apple-666/MyKNBase/assets/76616492/f7ae0079-bcb1-4912-8cfb-199a65635e86)
+## 1. 常用命令
+```python
+git config   .gitconfig文件
+.git 版本库 存配置 日志信息等
+.git/index  暂存区（git add之后放入暂存区 二进制文件）
 
+文件两种状态：
+untracked 未跟踪 未被纳入版本控制
+tracked 已跟踪的(staged(暂存的) modified unmodified)
 
+git status -s 更简洁的查看  (M已修改的状态 ??未跟踪的状态)
+```
 
 # Svn
 ```python
