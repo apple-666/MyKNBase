@@ -347,6 +347,9 @@ If you pull remote changes with the flag --merge, which is also the default, the
 git pull --merge 
 :::
 
+![image](https://github.com/apple-666/MyKNBase/assets/76616492/f7ae0079-bcb1-4912-8cfb-199a65635e86)
+
+
 
 # Svn
 ```python
