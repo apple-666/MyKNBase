@@ -364,6 +364,9 @@ git status -s 更简洁的查看
 	??未跟踪的状态)
 	D 被删除的文件
 git rm 就是删除一个文件 和右键删除一个文件效果一样
+
+git remote add origin1 url  添加远程仓库
+git remote -v 查看远程仓库
 ```
 
 # Svn
