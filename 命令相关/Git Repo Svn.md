@@ -374,11 +374,24 @@ git pull （origin/master）  抓取最新代码会自动merge
 git branch	本地分支
 git branch -r  	远程分支
 git branch -a	所有分支
-git branch branchname 创建一个本地分支
+git branch branchname 以当前的分支为base创建一个本地分支
 git checkout branch 切换分支
 git push origin b1 == git push origin local_b1:remote_bi  将本地b1分支推送到远程分支的b1 默认是本地分支和远程分支同名，两者都可以指定
 git merge b1  在本地b2的分支下执行，将本地b1的内容merge到本地b2
 git branch -d b1 删除本地分支      -D b1 强制删除分支
+git push origin -d b1 删除远程分支
+
+用分支修改bug场景：
+在本地切换分支b1，解决bug后，在master中merge b1，再推送到远程
+0. git checkout master 
+1. git checkout -b b1
+2. 在b1上解决bug
+3. git add + git commit
+4. git checkout master
+5. git merge b1
+6. git push origin master
+
+
 ```
 
 # Svn
