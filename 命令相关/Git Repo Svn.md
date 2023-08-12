@@ -88,9 +88,26 @@ git status #查看所有文件状态
 # 02-分支相关
 
 # 03-reset相关
+```python
+git reset 撤销操作
+git reset --soft HEAD^ 软撤销，保留代码修改,HEAD^代表最近的版本号
+git reset --hard HEAD^ 硬撤销，不保留代码修改
+
+撤销add
+git add .
+git reset
+
+撤销commit 软撤销
+git add .
+git commit
+git reset --soft HEAD^
+```
+
 
 # 04-fetch和pull
-
+[https://blog.csdn.net/weixin_44821980/article/details/108536648](https://blog.csdn.net/weixin_44821980/article/details/108536648)
+git pull（拉取代码） 会自动合并本地的代码
+git fetch（获取代码） 不会自动合并本地的代码，后用 git diff可看冲突的点
 
 
 # 05-fork仓库
@@ -119,9 +136,9 @@ git status #查看所有文件状态
 ### 01-撤销git add:
 ```python
 撤销了add但本地修改的代码还在
-git restore --staged filename   常用于单个文件
 git reset			常用于当前目录所有文件
-git reset HEAD filename 
+git reset HEAD filename		常用于单个文件
+git restore --staged filename   
 git reset HEAD  撤销最近的一次
 ```
 
@@ -207,18 +224,9 @@ git commit
 ```
 
 ## 02-fetch和pull：
-[https://blog.csdn.net/weixin_44821980/article/details/108536648](https://blog.csdn.net/weixin_44821980/article/details/108536648)
-**pull（拉取）**
-```python
-:::info
-作用和我的理解：把数据从远端拉到本地目前的分支上并进行自动合并
-对本地文件的影响：如果有有冲突会自动合并，有些合并不了的会提示用户手动合并。
-:::
-**fetch（获取）**
-:::info
-作用和我的理解：获取远端仓库信息 , 比如现在远端的版本比本地的版本先进，用git branch -a可以查看远端的分支，但是这时我们查询的分支也是旧的 ， 当使用git fetch获取到远端信息之后，此时用git branch -a查询出来的远端分支是最新的，我们将远端分支和本地分支进行合并，并且解决冲突在进行commit和push
-对本地文件的影响：和本地文件无关
-:::
+
+
+
 ```
  
 ```python
