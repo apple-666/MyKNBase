@@ -46,12 +46,29 @@ git config --global -l 查看当前用户（global）配置
 git config --global user.name "kuangshen" #名称 
 git config --global user.email 24736743@qq.com #邮箱 
 ```
-### 常用单条命令
+### 常用知识和命令
 ```python
 git status	修改的状态
 git show      	最近一次commit的修改内容（配合git fetch之后使用）
 git log         查看提交历史
 git diff	查看冲突的点
+
+文件两种状态：
+untracked 未跟踪 未被纳入版本控制
+tracked 已跟踪的(staged(暂存的) modified )
+
+git status -s 更简洁的查看
+ 	M 已修改的状态(红色 为add之前  绿色位add之后
+	??未跟踪的状态)
+	D 被删除的文件
+git rm 就是删除一个文件 和右键删除一个文件效果一样
+
+git tag 列出标签
+git tag v1 本地标签
+git push origin v1 本地标签推送到远程标签用于发布软件 
+git checkout -b b3 v1 基于本地v1标签创建b3分支
+git tag -d v1 删除本地标签
+git push origin :refs/tag/v1 删除远程标签v1
 ```
 
 ### 本地仓库搭建
@@ -86,11 +103,27 @@ git status #查看所有文件状态
 
 
 # 02-分支相关
+较为复杂的分支相关命令： <br>
+[https://blog.csdn.net/weixin_30699831/article/details/101982286](https://blog.csdn.net/weixin_30699831/article/details/101982286)
+常用分支命令
+```python
+git branch 		        查看本地分支		
+git branch -r	    		查看远程仓库的分支
+git branch dev1                 创建分支dev1
+git checkout dev2               切换到分支dev2 （可以在查看玩远程后直接切换）
+git checkout -b dev2            创建并切换到分支dev2
+git merge dev3 			吸收dev3（将dev3合并过来）
+git branch -d dev2              删除dev2
+git branch -D dev2              强制删除
+git push origin -d dev2	   	删除远程的dev2 
+git push origin dev2            从当前分支push到dev2分支
+```
+
 
 # 03-reset相关
 ```python
-git reset 撤销操作
-git reset --soft HEAD^ 软撤销，保留代码修改,HEAD^代表最近的版本号
+git reset 撤销操作 撤销add
+git reset --soft HEAD^ 软撤销，保留代码修改,HEAD^代表最近的版本号 撤销 commit
 git reset --hard HEAD^ 硬撤销，不保留代码修改
 
 撤销add
@@ -105,12 +138,56 @@ git reset --soft HEAD^
 
 
 # 04-fetch和pull
-[https://blog.csdn.net/weixin_44821980/article/details/108536648](https://blog.csdn.net/weixin_44821980/article/details/108536648)
-git pull（拉取代码） 会自动合并本地的代码
-git fetch（获取代码） 不会自动合并本地的代码，后用 git diff可看冲突的点
-
+详细教学：[https://blog.csdn.net/weixin_44821980/article/details/108536648](https://blog.csdn.net/weixin_44821980/article/details/108536648) <br>
+git pull（拉取代码） 	会自动合并本地的代码	<br>
+git pull rebase 	执行变基，无视本地的修改，都使用远程的 <br>
+git fetch（获取代码） 	不会自动合并本地的代码，后用 git diff可看冲突的点 <br>
+git fetch 远程常用
+```python
+1.获取远端master信息 	
+	git fetch origin master	 
+	//获取master的信息，不过不写origin master，默认是获取所有分支信息 
+2.切换到远程master分支 	
+	git checkout origin/master	 
+	//切换分支的时候如果在 分支名的前面加 origin/ 则代表切换的远程分支， 
+	//这个分支现在是项目最新版本，应为第一步的时候已经获取过远程master的信息了 
+3.观察远程master分支，然后切回本地分支 	
+	git checkout master 
+4. 合并远程master分支 	
+	git merge origin/master 
+```
 
 # 05-fork仓库
+使用fork 仓库 
+```python
+1，clone fork 仓库
+2，查看 repoA的 origin：
+git remote -v
+3，设置repoA fork的upstream 为repoA的 origin： 
+git remote add upstream git@github.houston.softwaregrp.net:SMA-RnD/suite-registry.git
+3.5 跳转origin 或 upstream分支
+git checkout --track origin/patch/2020.08
+4，指定pull的来源 （upstream和origin）git pull upstream --rebase
+git fetch upstream 将远程所有的分支fetch下来
+如果是分支（patch/2020.08是一个分支）：git pull upstream patch/2020.08 --rebase  
+5，指定push的地方  git push origin 
+
+打开 Git Bash。
+列出当前为复刻配置的远程仓库。
+$ git remote -v
+> origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
+> origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
+指定将与复刻同步的新远程上游仓库。
+$ git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git
+验证为复刻指定的新上游仓库。
+$ git remote -v
+> origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
+> origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
+> upstream  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (fetch)
+> upstream  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (push)
+```
+eg：在公司中：
+![image.png](https://cdn.nlark.com/yuque/0/2023/png/22347830/1676561621315-25f57907-f7f7-49a0-b722-369705f057bf.png#averageHue=%23292c39&clientId=uc653fb8e-644a-4&from=paste&height=248&id=u2dce24d4&name=image.png&originHeight=248&originWidth=675&originalType=binary&ratio=1&rotation=0&showTitle=false&size=20146&status=done&style=none&taskId=ucfca84d6-e019-4ab7-9ad6-d03211c86ae&title=&width=675)
 
 # 05-常用流程和场景
 ## 01-基本使用流程
@@ -156,48 +233,23 @@ git add .
 git commit --amend
 ```
 
-# 02-常用场景 命令
-
-
-
-### 撤销git fetch
-```python
- git reset --hard HEAD^ 		fetch的代码会消失，回退到之前的状态，可以用于对比new 和 old bin
- git reset --soft HEAD^ 		fetch的代码不会消失，回退到git commit之前的代码（绿色），可以再次提交
-```
-
-### 撤销push：回到对应的版本号
-```python
-gitk 查询对应点的版本号（SHA1 ID） 
-或者git log
-按 q 退出查看 
-git reset –-soft 版本号：回退到某个版本，只回退了commit的信息，不会恢复到index file一级。
-	- 如果还要提交，直接commit + push即可； 
-git reset -–hard 版本号：彻底回退到某个版本，本地的源码也会变为上一个版本的内容，撤销的commit中所包含的更改被冲掉 
-	- 然后 git push origin dev1 --force  强制提交
-
-```
-### commit注释写错了，只是想改一下注释 或代码，只需要：
+### 04-commit注释写错了，只是想改一下注释 或代码，只需要：
 ```python
  git add .
  git commit --amend 
 ```
-### 如果push失败：
-```python
-git gc 
-git pull --rebase 
-git push origin HEAD:refs/for/master%ready 
-```
 
-### git fetch的使用
+### 05-fetch之后消除冲突
 ```python
-消除conflict：
 git pull
 git fetch
 git diff
+点击文件进去 resolve冲突
 git commit
 ```
-```
+
+### 06-多个合并成一个commitid
+```python
 两个gerrit （要在同git环境下，同git conf下）提交合并成一个commit[id]：
 相关命令：
     git stash				# let stash
@@ -206,7 +258,7 @@ git commit
 步骤：
     git status  确保clear
     git fetch ssh://sssssm:394181111111111  会拉下来代码  (包含commit信息，后面的fetch想合到这个commit上的话，就不用git reset， 后面的git fetch的 git reset --soft HEAD^ 再 add+commit)
-    git reset --soft HEAD^  
+    git reset --soft HEAD^  软撤销
     （中途可修改代码）
     git stash
     git fetch ssh://sssssom:39422222222222  # 尽量在对应分支下面 fetch
@@ -223,74 +275,10 @@ git commit
     用 git reset --hard HEAD^    可以去除当前仓最近的一个git fetch 
 ```
 
-## 02-fetch和pull：
+## 03-分支类常用
 
-
-
-```
- 
+### 01-main存发布版本，分支1做开发版本
 ```python
-1.获取远端master信息 	
-	git fetch origin master	 
-	//获取master的信息，不过不写origin master，默认是获取所有分支信息 
-2.切换到远程master分支 	
-	git checkout origin/master	 
-	//切换分支的时候如果在 分支名的前面加 origin/ 则代表切换的远程分支， 
-	//这个分支现在是项目最新版本，应为第一步的时候已经获取过远程master的信息了 
-3.观察远程master分支，然后切回本地分支 	
-	git checkout master 
-4. 合并远程master分支 	
-	git merge origin/master 
-```
-**使用fork 仓库：**
- 
-```python
-1，clone fork 仓库
-2，查看 repoA的 origin：
-git remote -v
-3，设置repoA fork的upstream 为repoA的 origin： 
-git remote add upstream git@github.houston.softwaregrp.net:SMA-RnD/suite-registry.git
-3.5 跳转origin 或 upstream分支
-git checkout --track origin/patch/2020.08
-4，指定pull的来源 （upstream和origin）git pull upstream --rebase
-git fetch upstream 将远程所有的分支fetch下来
-如果是分支（patch/2020.08是一个分支）：git pull upstream patch/2020.08 --rebase  
-5，指定push的地方  git push origin 
-
-打开 Git Bash。
-列出当前为复刻配置的远程仓库。
-$ git remote -v
-> origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
-> origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
-指定将与复刻同步的新远程上游仓库。
-$ git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git
-验证为复刻指定的新上游仓库。
-$ git remote -v
-> origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
-> origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
-> upstream  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (fetch)
-> upstream  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (push)
-```
-eg：在公司中：
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/22347830/1676561621315-25f57907-f7f7-49a0-b722-369705f057bf.png#averageHue=%23292c39&clientId=uc653fb8e-644a-4&from=paste&height=248&id=u2dce24d4&name=image.png&originHeight=248&originWidth=675&originalType=binary&ratio=1&rotation=0&showTitle=false&size=20146&status=done&style=none&taskId=ucfca84d6-e019-4ab7-9ad6-d03211c86ae&title=&width=675)
-## 03-常用分支merge场景
-
-**常用分支命令**
-```python
-git branch 		            查看本地分支		
-git branch -r                       查看远程仓库的分支
-git branch dev1                     创建分支dev1
-git checkout dev2                   切换到分支dev2 （可以在查看玩远程后直接切换）
-git checkout -b dev2                创建并切换到分支dev2
-git merge dev3                      吸收dev3（将dev3合并过来）
-git branch -d dev2                  删除dev2
-git branch -D dev2                 强制删除
-git push origin --delete dev2	   删除远程的dev2 
-git push origin dev2               从当前分支push到dev2分支
-git push -f                        强制push
-git branch -dr origin/dev2          删除远程的dev2  (先用git branch -r )
-
-0. main存发布版本，分支1做开发版本
 git clone ..git (main分支就行)(远程环境的已经做过了)
 git checkout -b new_branch
 git add ..
@@ -300,25 +288,18 @@ git push origin new_branch
 git checkout main  (git checkout origin mian)
 git pull origin
 之后就是接收git check循环了
+```
 
-1. 新建分支并提交（常用, 提了merge request后，分支就可以换了）
-git clone ..git
-git branch peng  创建peng分支
-git checkout peng 跳到peng分支
-修改。。
-git add .
-git commit -m "xxx"
-git push origin peng 提交（带-u是关联ref）
-
-2. 拉取远程分支到本地：
+### 02-拉取远程分支到本地：
+```python
 git init			            初始化空文件	
 git remote add origin http.....git          拉master(只是初始.git文件)
 git fetch origin remote_dev                 拉远程的分支(初始化)
 git checkout -b local_dev origin/remote_dev 建立本地分支（出现代码）	
 git pull origin remote_dev                  拉取远程分支最新的代码
-
 ```
-**一、本文是从master分支拉出的t2分支，然后合并回master**
+
+### 03-从master分支拉出的t2分支，然后合并回master
 ```python
 1、切换到master分支：
 	git checkout master
@@ -338,84 +319,16 @@ git pull origin remote_dev                  拉取远程分支最新的代码
 	git push origin master
 此例是父分支和自分支之间的merge操作，爷孙分支亦如此，旁系分支合并亦然
 ```
-**二、将master分支内容合并到dev分支**
+
+### 04-将master分支内容合并到dev分支
 ```python
 1、切换到你所在分支dev：
 	git checkout dev
 2、git merge master
 3、将本地内容push到dev分支：
 	git push
-	
-我的分支(dev1)内容合并到master中：
-git pull
-git checkout master
-get merge dev1
-git push
 ```
-**较为复杂的分支相关命令：**
-[https://blog.csdn.net/weixin_30699831/article/details/101982286](https://blog.csdn.net/weixin_30699831/article/details/101982286)
-### 04-拉取远程代码Git pull --rebase vs. --merge
-**rebasing**
-:::info
-If you pull remote changes with the flag --rebase, then your local changes are reapplied on top of the remote changes.
-git pull --rebase
-:::
-**merging**
-:::info
-If you pull remote changes with the flag --merge, which is also the default, then your local changes are merged with the remote changes. This results in a merge commit that points to the latest local commit and the latest remote commit.
-git pull --merge 
-:::
 
-# 我的理解
-![image](https://github.com/apple-666/MyKNBase/assets/76616492/f7ae0079-bcb1-4912-8cfb-199a65635e86)
-## 1. 常用命令
-```python
-git config   .gitconfig文件
-.git 版本库 存配置 日志信息等
-.git/index  暂存区（git add之后放入暂存区 二进制文件）
 
-文件两种状态：
-untracked 未跟踪 未被纳入版本控制
-tracked 已跟踪的(staged(暂存的) modified )
-
-git status -s 更简洁的查看
- 	M 已修改的状态(红色 为add之前  绿色位add之后
-	??未跟踪的状态)
-	D 被删除的文件
-git rm 就是删除一个文件 和右键删除一个文件效果一样
-
-git remote add origin1 url  添加远程仓库
-git remote -v 查看远程仓库
-
-git fetch 抓取最新代码 不会自动merge  后接 git merge origin/master远程分支名 实现merge
-git pull （origin/master）  抓取最新代码会自动merge
-
-git branch	本地分支
-git branch -r  	远程分支
-git branch -a	所有分支
-git branch branchname 以当前的分支为base创建一个本地分支
-git checkout branch 切换分支
-git push origin b1 == git push origin local_b1:remote_bi  将本地b1分支推送到远程分支的b1 默认是本地分支和远程分支同名，两者都可以指定
-git merge b1  在本地b2的分支下执行，将本地b1的内容merge到本地b2
-git branch -d b1 删除本地分支      -D b1 强制删除分支
-git push origin -d b1 删除远程分支
-
-用分支修改bug场景：
-在本地切换分支b1，解决bug后，在master中merge b1，再推送到远程
-0. git checkout master 
-1. git checkout -b b1
-2. 在b1上解决bug
-3. git add + git commit
-4. git checkout master
-5. git merge b1
-6. git push origin master
-
-git tag 列出标签
-git tag v1 本地标签
-git push origin v1 本地标签推送到远程标签用于发布软件 
-git checkout -b b3 v1 基于本地v1标签创建b3分支
-git tag -d v1 删除本地标签
-git push origin :refs/tag/v1 删除远程标签v1
-```
 
 
