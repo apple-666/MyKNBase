@@ -367,6 +367,18 @@ git rm 就是删除一个文件 和右键删除一个文件效果一样
 
 git remote add origin1 url  添加远程仓库
 git remote -v 查看远程仓库
+
+git fetch 抓取最新代码 不会自动merge  后接 git merge origin/master远程分支名 实现merge
+git pull （origin/master）  抓取最新代码会自动merge
+
+git branch	本地分支
+git branch -r  	远程分支
+git branch -a	所有分支
+git branch branchname 创建一个本地分支
+git checkout branch 切换分支
+git push origin b1 == git push origin local_b1:remote_bi  将本地b1分支推送到远程分支的b1 默认是本地分支和远程分支同名，两者都可以指定
+git merge b1  在本地b2的分支下执行，将本地b1的内容merge到本地b2
+git branch -d b1 删除本地分支      -D b1 强制删除分支
 ```
 
 # Svn
