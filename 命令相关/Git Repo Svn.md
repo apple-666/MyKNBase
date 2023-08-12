@@ -20,7 +20,19 @@ eg：
   repo sync -c  --no-tags   同步最新代码
 ```
 
-# 01-基本介绍
+# Svn
+```python
+svn up		update
+svn status
+svn log
+svn add a.txt	(可有可无的)
+svn ci -m 'msg1' 提交当前目录所有修改的
+svn ci -m 'msg1' a1.o a2.o 指定文件提交
+svn mv a.log dir1/  移动
+svn del a.log -m 'msg1'
+```
+
+# 01-Git基本介绍
 Git Bash：Unix与Linux风格的命令行，使用最多，推荐最多 <br>
 Git CMD：Windows风格的命令行	<br>
 Git GUI：图形界面的Git，不建议初学者使用，尽量先熟悉常用命令 <br>
@@ -33,6 +45,13 @@ git config --global -l 查看当前用户（global）配置
 设置global级
 git config --global user.name "kuangshen" #名称 
 git config --global user.email 24736743@qq.com #邮箱 
+```
+### 常用单条命令
+```python
+git status	修改的状态
+git show      	最近一次commit的修改内容（配合git fetch之后使用）
+git log         查看提交历史
+git diff	查看冲突的点
 ```
 
 ### 本地仓库搭建
@@ -60,12 +79,28 @@ git status #查看所有文件状态
  #为注释 
  *.txt 		忽略所有 .txt结尾的文件,这样的话上传就不会被选中 
  !lib.txt	不忽略lib.txt
- /temp 		仅忽略项目根目录下的TODO文件,不包括其它目录temp 
+ /temp 		仅忽略项目根目录下的temp文件,不包括其它目录temp 
  build/ 	忽略build/目录下的所有文件 
  doc/*.txt 	会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
 ```
 
 
+# 02-分支相关
+
+# 03-reset相关
+
+# 04-fetch和pull
+
+
+
+# 05-fork仓库
+
+# 05-常用流程和场景
+## 01-基本使用流程
+```python
+```
+
+```python
 1. 创建git仓库
 2. 将git仓库克隆下来，将仓库文件放到idea项目中
    1. git clone [url] # https://gitee.com/kuangstudy/openclass.git 
@@ -78,42 +113,35 @@ git status #查看所有文件状态
    1.  git commit -m "填写msg" 节点变黄 
 6. push到远程仓库gitee中
    1.  git push 
-:::
-# 02-常用场景 命令
-## 00-常用命令
-```python
-git show                            最近一次commit的修改内容（配合git fetch之后使用）
-git log                             查看提交历史
-git branch			    本地仓库上的分支	
-当前所在的分支在查看时会变绿
-```
-## 01-常用场景
-### 撤销git add .:
-```python
-修改了状态，但本地修改的代码还在
-
- git reset HEAD filename 或者 git restore filename
- git reset HEAD  撤销最近的一次 
 ```
 
-### git add后取消一个文件的提交:
+## 02-撤销类常见
+### 01-撤销git add:
 ```python
-git restore --staged file1
-之后看git status是没有对应文件的
-```
-### 撤销刚才的commit
-```python
- git reset --soft HEAD^ 		仅仅是撤回commit操作，您写的代码仍然保留。
+撤销了add但本地修改的代码还在
+git restore --staged filename   常用于单个文件
+git reset			常用于当前目录所有文件
+git reset HEAD filename 
+git reset HEAD  撤销最近的一次
 ```
 
-### 已commit，撤销一个文件的修改
+### 02-撤销commit：
+```python
+git reset --soft HEAD^ 		仅仅是撤回commit操作，您写的代码仍然保留。
+```
+
+### 03-已commit，撤销一个文件的修改
 ```python
 git log a.txt
-git reset commitid a.txt  撤销到前一个commitid
-git checkout a.txt
+git reset commitid a.txt  撤销到前一个commitid,会保留代码
+git checkout a.txt	  对文件还原到commitid
 git add .
-git commit
+git commit --amend
 ```
+
+# 02-常用场景 命令
+
+
 
 ### 撤销git fetch
 ```python
@@ -380,18 +408,6 @@ git push origin v1 本地标签推送到远程标签用于发布软件
 git checkout -b b3 v1 基于本地v1标签创建b3分支
 git tag -d v1 删除本地标签
 git push origin :refs/tag/v1 删除远程标签v1
-```
-
-# Svn
-```python
-svn up		update
-svn status
-svn log
-svn add a.txt	(可有可无的)
-svn ci -m 'msg1' 提交当前目录所有修改的
-svn ci -m 'msg1' a1.o a2.o 指定文件提交
-svn mv a.log dir1/  移动
-svn del a.log -m 'msg1'
 ```
 
 
