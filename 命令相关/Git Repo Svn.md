@@ -14,7 +14,6 @@ repo init -u urlname [options]  当前目录中安装 Repo   （类似于初始�
 eg:
   repo init -u urlname1 -b xxxx -g open --no-repo-verify --repo-branch=stable
 
-
 repo sync [project-list-name] 更新本地工作文件 默认同步所有项目的文件 （类似git rebase origin）
 -c：仅获取服务器中的当前清单分支
 eg：
@@ -25,44 +24,31 @@ eg：
 Git Bash：Unix与Linux风格的命令行，使用最多，推荐最多 <br>
 Git CMD：Windows风格的命令行	<br>
 Git GUI：图形界面的Git，不建议初学者使用，尽量先熟悉常用命令 <br>
-配置相关
+### 配置相关
 ```python
 git config -l 
 config --system --list 
 git config --global -l 查看当前用户（global）配置 
-```
+
 设置global级
-```python
- git config --global user.name "kuangshen" #名称 
+git config --global user.name "kuangshen" #名称 
 git config --global user.email 24736743@qq.com #邮箱 
 ```
-上传本地repo到github
-:::info
-1，在github中创建一个repo2
-2，在本地repo中，gitclone下repo2，repo中有repo2的.git就行了
-3，git push一遍文件就行了
-:::
-**本地仓库搭建**
-:::info
+
+### 本地仓库搭建
+```python
 创建本地仓库的方法有两种：
 1、创建全新的仓库
- # 在当前目录新建一个Git代码库 $ git init 
+git init  在当前目录新建一个Git代码库 
 2，克隆远程仓库
  $ git clone [url] # https://gitee.com/kuangstudy/openclass.git 
-:::
-**查看文件状态**
-:::info
- #查看指定文件状态 
-git status [filename] 
-#查看所有文件状态 
-git status
+git status [filename]  #查看指定文件状态 
+git status #查看所有文件状态 
 	未git add 是红色
 	git add. 后是绿色
 	git commit 后无状态
-:::
-**忽略文件**
-:::info
-有些时候我们不想把某些文件纳入版本控制中，比如数据库文件，临时文件，设计文件等
+```
+### 忽略文件
 在主目录下建立".gitignore"文件，此文件有如下规则：
 0. 可以忽略本身 .gitignore
 1. 忽略文件中的空行或以井号（#）开始的行将会被忽略。
@@ -70,11 +56,15 @@ git status
 3. 如果名称的最前面有一个感叹号（!），表示例外规则，将不被忽略。
 4. 如果名称的最前面是一个路径分隔符（/），表示要忽略的文件在此目录下，而子目录中的文件不忽略。
 5. 如果名称的最后面是一个路径分隔符（/），表示要忽略的是此目录下该名称的子目录，而非文件（默认文件或目录都忽略）。
+```python
+ #为注释 
+ *.txt 		忽略所有 .txt结尾的文件,这样的话上传就不会被选中 
+ !lib.txt	不忽略lib.txt
+ /temp 		仅忽略项目根目录下的TODO文件,不包括其它目录temp 
+ build/ 	忽略build/目录下的所有文件 
+ doc/*.txt 	会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
+```
 
- #为注释 *.txt #忽略所有 .txt结尾的文件,这样的话上传就不会被选中 ！!lib.txt #但lib.txt除外 /temp #仅忽略项目根目录下的TODO文件,不包括其它目录temp build/ #忽略build/目录下的所有文件 doc/*.txt #会忽略 doc/notes.txt 但不包括 doc/server/arch.txt 
-:::
-**Git和idea项目绑定**
-:::info
 
 1. 创建git仓库
 2. 将git仓库克隆下来，将仓库文件放到idea项目中
