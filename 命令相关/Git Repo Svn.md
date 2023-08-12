@@ -1,3 +1,4 @@
+# Repo相关
 ```python
 [] 代表可选
 XXname 代码参数
@@ -5,7 +6,7 @@ XXname 代码参数
 repo help init                  生成 Repo init 参数的说明和选项列表
 repo init --help
 
-repo init -u urlname [options]  当前目录中安装 Repo                （类似于初始化.git）
+repo init -u urlname [options]  当前目录中安装 Repo   （类似于初始化.git）
 -u：指定从中检索清单代码库的网址。
 -m：选择代码库中的清单文件。如果未选择清单名称，则默认为 default.xml。
 -b：指定修订版本，即特定的 manifest-branch。
@@ -18,25 +19,17 @@ repo sync [project-list-name] 更新本地工作文件 默认同步所有项目�
 -c：仅获取服务器中的当前清单分支
 eg：
   repo sync -c  --no-tags   同步最新代码
- 
 ```
+
 # 01-基本介绍
-:::info
-**Git Bash：**Unix与Linux风格的命令行，使用最多，推荐最多
-**Git CMD：**Windows风格的命令行
-**Git GUI**：图形界面的Git，不建议初学者使用，尽量先熟悉常用命令
-:::
-查看配置 
+Git Bash：Unix与Linux风格的命令行，使用最多，推荐最多 <br>
+Git CMD：Windows风格的命令行	<br>
+Git GUI：图形界面的Git，不建议初学者使用，尽量先熟悉常用命令 <br>
+配置相关
 ```python
 git config -l 
-```
-查看不同级别的配置文件：
-```python
- #查看系统config 
 config --system --list 
-
- #查看当前用户（global）配置 
-git config --global -l 
+git config --global -l 查看当前用户（global）配置 
 ```
 设置global级
 ```python
