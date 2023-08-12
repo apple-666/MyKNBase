@@ -391,7 +391,12 @@ git push origin -d b1 删除远程分支
 5. git merge b1
 6. git push origin master
 
-
+git tag 列出标签
+git tag v1 本地标签
+git push origin v1 本地标签推送到远程标签用于发布软件 
+git checkout -b b3 v1 基于本地v1标签创建b3分支
+git tag -d v1 删除本地标签
+git push origin :refs/tag/v1 删除远程标签v1
 ```
 
 # Svn
