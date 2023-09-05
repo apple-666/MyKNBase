@@ -10,3 +10,11 @@ https://hs-yq.com/
 关键字： https://www.yiming818.com/33000.html 
 https://www.auacc.com/6919.html 
 ```
+
+
+自动评论脚本：
+```python
+https://zhuanlan.zhihu.com/p/57242891
+https://blog.51cto.com/u_15652786/5346529
+
+```
