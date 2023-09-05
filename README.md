@@ -17,4 +17,12 @@ https://www.auacc.com/6919.html
 https://zhuanlan.zhihu.com/p/57242891
 https://blog.51cto.com/u_15652786/5346529
 
+https://www.jb51.net/article/220839.htm
+
+抖音：
+http://www.xkrj5.com/thread-7800-1-1.html
+
+快手：
+https://blog.csdn.net/m0_48405781/article/details/125034475
+
 ```
