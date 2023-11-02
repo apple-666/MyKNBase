@@ -228,7 +228,7 @@ git reset --soft HEAD^ 		仅仅是撤回commit操作，您写的代码仍然保�
 ```python
 git log a.txt
 git reset commitid a.txt  撤销到前一个commitid,会保留代码
-git checkout a.txt	  对文件还原到commitid
+git checkout commitid --a.txt	  对文件还原到commitid
 git add .
 git commit --amend
 ```
