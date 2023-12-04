@@ -239,14 +239,143 @@ MAX_INT = 0x7FFFFFFF
 MIN_INT = MAX_INT + 1
 ```
 
-##  
+## 读写文件表格
 ```python
+# openpyxl使用： 只要调用了save(filename) 就能实时保存
+import openpyxl
+from openpyxl import Workbook
 
+# 添加内容
+
+def t1():
+# 创建一个文件 加入内容 保存并命名
+    workbook = Workbook()
+    workbook.create_sheet(index=0, title="s1")
+    worksheet1 = workbook.active
+    worksheet1['A1'] = 'test_id'
+    worksheet1['B1'] = 'test_result'
+    worksheet1['C1'] = 'chip_at_bootloader'
+
+    row1 = [1, 'succ', 'no']
+    worksheet1.append(row1)
+    worksheet1.append(row1)
+    worksheet1.append(row1)
+    workbook.save("t1.xlsx")
+
+def t2():
+# 为文件新增内容 没有找到就新建
+    file_path = "t1.xlsx"
+    wb = openpyxl.load_workbook(file_path)
+    worksheets = wb['s1']
+    end_row = worksheets.max_row
+
+    cell_data = worksheets.cell(row = 1, column = 1).value
+    print(cell_data)
+    worksheets.append(['pengpeng1', 'pengpeng2', 'pengpeng3'])
+    wb.save(file_path)
+
+if __name__ == '__main__':
+    # t1()
+    t2()
+
+    # test2()
 ```
 
-
-
-##  
 ```python
+# xlsxwriter（只能创建）
+import re
+import os
+import xlsxwriter
+
+# normal
+dir_path = 'D:\\ws\\get_voltage\\IBC'
+
+table_header = [
+    "chip_type",
+    "dieid",
+    "test_time",
+    "power_name",
+    "vol_val"
+]
+chip_type_col = 0
+dieid_col = 1
+test_time_col = 2
+power_name_col = 3
+vol_val_col = 4
+
+chip_type_end = 1
+dieid_end = 1
+test_time_end = 1
+power_name_end = 1
+vol_val_end = 1
+
+workbook = xlsxwriter.Workbook("data.xlsx")
+worksheet1 = workbook.add_worksheet("sheet1")
+
+def init_xlsx():
+    bold_format = workbook.add_format({'bold': True})
+    worksheet1.write_row(0, 0, table_header, bold_format)
+    worksheet1.set_column(0, 0, 50)
+    worksheet1.set_column(0, 1, 100)
+    worksheet1.set_column(0, 2, 100)
+    worksheet1.set_column(0, 3, 50)
+    worksheet1.set_column(0, 4, 50)
+
+def find_file(rt_path):
+    # cnt = 10
+    for root, dirs, files in os.walk(rt_path, topdown=False): # False优先遍历子目录
+        for file in files: # dirs = test_time
+            if file == "internal voltage.log":
+                fullname = os.path.join(root, file)
+                chip_type = os.path.basename(os.path.abspath(os.path.join(fullname, "../../..")))
+                dieid = os.path.basename(os.path.abspath(os.path.join(fullname, "../..")))
+                test_time = os.path.basename(os.path.abspath(os.path.join(fullname, "..")))
+                if dieid in ["123456", "0"*40, "f"*40]:
+                    break
+                rt_cnt = get_data(fullname)
+                if rt_cnt == -1:
+                    print("Erro file:" + fullname)
+                if rt_cnt != -1:  # OK
+                    global chip_type_end, dieid_end, test_time_end
+                    worksheet1.write_column(chip_type_end, chip_type_col, [chip_type] * rt_cnt)
+                    worksheet1.write_column(dieid_end, dieid_col, [dieid] * rt_cnt)
+                    worksheet1.write_column(test_time_end, test_time_col, [test_time] * rt_cnt)
+                    chip_type_end = chip_type_end + rt_cnt
+                    dieid_end = dieid_end + rt_cnt
+                    test_time_end = test_time_end + rt_cnt
+    print("generate data.xlsx succ")
+
+def get_data(file_path):
+    '''
+    :param file_path:
+    :return:
+        -1   ERROR 电源值数量!=分压值数量
+        >=0  OK
+    '''
+    with open(file_path, 'r', encoding='utf-8') as file:
+        text = file.read()
+        power_name = re.findall(r"电源:(.*?)，", text, re.S)
+        vol_val = re.findall(r"，测得分压：(.*?) V", text, re.S)
+        power_name_cnt = len(power_name)
+        vol_val_cnt = len(vol_val)
+        if vol_val_cnt == 0:  # "万用表测得分压" 情况
+            vol_val = re.findall(r"，万用表测得分压：(.*?) V", text, re.S)
+            vol_val_cnt = len(vol_val)
+        file.close()
+        vol_val = [float(i) for i in vol_val]
+        if power_name_cnt == vol_val_cnt:
+            global power_name_end, vol_val_end
+            worksheet1.write_column(power_name_end, power_name_col, power_name)
+            worksheet1.write_column(vol_val_end, vol_val_col, vol_val)
+            power_name_end = power_name_end + power_name_cnt
+            vol_val_end = vol_val_end + vol_val_cnt
+            return power_name_cnt
+        return -1
+
+if __name__ == '__main__':
+    init_xlsx()
+    find_file(dir_path)
+    workbook.close()
+
 
 ```
