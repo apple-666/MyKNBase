@@ -36,5 +36,6 @@ https://blog.csdn.net/m0_48405781/article/details/125034475
 6.芯片驱动测试向量：bg ldo vcm gpadc
 ```
 
-黑色简约ppt：https://www.51pptmoban.com/guowai/13737.html
-https://www.51pptmoban.com/guowai/4773.html
+黑色简约ppt：https://www.51pptmoban.com/guowai/13737.html <br>
+https://www.51pptmoban.com/guowai/4773.html <br>
+https://www.51pptmoban.com/shangwu/4533.html
