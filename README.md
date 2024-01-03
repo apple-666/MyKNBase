@@ -35,3 +35,6 @@ https://blog.csdn.net/m0_48405781/article/details/125034475
 5.示波器控制软件开发
 6.芯片驱动测试向量：bg ldo vcm gpadc
 ```
+
+黑色简约ppt：https://www.51pptmoban.com/guowai/13737.html
+https://www.51pptmoban.com/guowai/4773.html
