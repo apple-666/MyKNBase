@@ -27,14 +27,6 @@ https://blog.csdn.net/m0_48405781/article/details/125034475
 
 ```
 
-```python
-1.中断功能验证
-2.OM 图片分析软件开发 算法处理 算法调用
-3.eos软件的 光电板模块的开发
-4.单板控制软件开发 （电源，信号）+ 电路图设计研究  回板验证
-5.示波器控制软件开发
-6.芯片驱动测试向量：bg ldo vcm gpadc
-```
 
 黑色简约ppt：https://www.51pptmoban.com/guowai/13737.html <br>
 https://www.51pptmoban.com/guowai/4773.html <br>
