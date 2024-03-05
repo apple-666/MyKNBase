@@ -40,6 +40,23 @@ class InrConf(Config):
     @cccc
     def get_kkkk_config(cls):
         return cls.inr_config.get("xx", n)
-        
-        
+```
+
+# Log使用
+```python
+import logging
+
+class LogPro:
+    def __init__(self, path, log_name, level):
+        self.logger = Nonoe
+        self.path log_name level = ....
+
+    def get_logger(self):
+        self.logger = ....getlogger()
+        # 清除当前logger
+        # 日志处理器
+        # 日志格式器
+        # 将日志格式器 +到日志处理器中
+        # 将日志处理器添加到日志记录器中
+        return
 ```
